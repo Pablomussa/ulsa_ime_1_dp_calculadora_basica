@@ -55,104 +55,85 @@ g++ -Wall -Wextra -std=c++17 main.cpp -o calculadora
 
 ## 7. Ejemplo de ejecución (Fase 3)
 <!-- Pega aquí lo que muestra tu programa en pantalla con una división donde primero escribes 0 como segundo número. -->
-
-```
+Calculadora b├ísica
+Ingresa el primer n├║mero: 1
+Ingresa el segundo n├║mero: 1
+Selecciona una operacion: 
+1.Suma 
+2.Resta 
+3.Multiplicacion 
+4.Division 
+Ingresa tu opci├│n: 1
+El resultado de la suma es: 2
 _____
-```
+8. De la receta al código (Fase 3)
+Paso de la receta	Instrucción de C++ que lo implementa
+1 y 2. Título y menú	cout<< "Calculadora básica\n";
+3. Leer y validar la opción	cout<< "Selecciona una operacion: \n";
+4 y 5. Leer a y b	cout<< "Ingresa el primer número: ";
+cin>> numero1; |
+| 6. Validar el divisor | if(numero2 == 0){ cout<< "Error: No se puede dividir entre cero." << endl; | | 7. Decisión múltiple (un case) | switch(opcion){ case 1: | | 8. Mostrar el resultado | cout<< "El resultado de la suma es: " |
 
-## 8. De la receta al código (Fase 3)
-<!-- Para cada paso de la receta, escribe la instrucción (o instrucciones) de C++ que lo implementa. -->
+¿Hubo algún paso de la receta que te costó traducir a C++? ¿Cuál y por qué? La parte de la terminal
 
-| Paso de la receta | Instrucción de C++ que lo implementa |
-|---|---|
-| 1 y 2. Título y menú | _____ |
-| 3. Leer y validar la opción | _____ |
-| 4 y 5. Leer `a` y `b` | _____ |
-| 6. Validar el divisor | _____ |
-| 7. Decisión múltiple (un `case`) | _____ |
-| 8. Mostrar el resultado | _____ |
+9. Experimentos (Fase 3)
+Experimento A: sin el break del case 1, ¿qué mostró el programa con 8 + 5? ¿Qué te dijo el compilador? ¿Por qué pasó? Dio el resultado de la suma y de la resta, me advirtió sobre una falla, por el break no detiene la operacion en la suma y siguio hasta la resta
 
-**¿Hubo algún paso de la receta que te costó traducir a C++? ¿Cuál y por qué?**
-_____
+Experimento B: sin la validación del Paso 6, ¿qué mostró el programa con 5 / 0? ¿Tiene sentido? va a mostrar "Error: No se puede dividir entre 0". Si
 
-## 9. Experimentos (Fase 3)
+Experimento C (opcional): con a y b de tipo int, ¿qué resultado dio 7 / 2? ¿Te avisó el compilador?
 
-**Experimento A: sin el `break` del `case 1`, ¿qué mostró el programa con 8 + 5? ¿Qué te dijo el compilador? ¿Por qué pasó?**
-_____
+10. Tabla de pruebas (Fase 4)
+Caso	Entradas (opción, a, b)	Esperado	Obtenido	¿Pasó?
+Suma	1, 8, 5	8 + 5 = 13	_13	si
+Resta negativa	2, 3, 5	3 - 5 = -2	_-2	si_
+Multiplicación con decimales	3, 2.5, 4	2.5 * 4 = 10	_10	si
+Multiplicación con negativo	3, -3, 4	-3 * 4 = -12	-12	si_
+División	4, 7, 2	7 / 2 = 3.5	_3.5	___si
+Dividendo cero	4, 0, 5	0 / 5 = 0	0	si_
+Divisor cero	4, 5, 0 (luego 2)	vuelve a pedir b; 5 / 2 = 2.5	marca error y te saca de la operación	no
+Suma con cero	1, 5, 0	5 + 0 = 5 (no vuelve a pedir b)	el resultado de la suma es=5	no
+Opción fuera de rango	5 (luego 1), 8, 5	vuelve a pedir la opción; 8 + 5 = 13	 dice Opción no válida	no
+Opción cero	0 (luego 1), 8, 5	vuelve a pedir la opción; 8 + 5 = 13	dice opcion no válida	no_
+Opción decimal	2.5 (luego 2), 3, 5	leerEntero vuelve a pedir; 3 - 5 = -2 hace la resta	no_
+Opción con texto	suma (luego 1), 8, 5	leerEntero vuelve a pedir; 8 + 5 = 13	Dice opcion no válida	_no
+Número con texto	1, abc (luego 8), 5	leerDecimal vuelve a pedir; 8 + 5 = 13	Opcion no válida	no__
+Caso propio 4	1, 6 y 94	15.66	15.666	_si
+Caso propio 3	2, 2 y 87	174	174	si
+11. Bitácora de mejoras (Fase 4)
+#	¿Qué falló o qué quise mejorar?	¿Qué cambié?	¿Funcionó?
+1	_____	_____	_____
+2	_____	_____	_____
+¿Encontré algo que la receta no contemplaba? ¿Qué?
+que la terminal me falle
+Reto elegido (opcional): _____
 
-**Experimento B: sin la validación del Paso 6, ¿qué mostró el programa con 5 / 0? ¿Tiene sentido?**
-_____
+12. Dudas para el profesor (Fase 3)
+Duda	La terminal
+_____	_____
+13. Reflexión final
+¿Qué aprendí con esta práctica?
+a hacer una calculadora
 
-**Experimento C (opcional): con `a` y `b` de tipo `int`, ¿qué resultado dio 7 / 2? ¿Te avisó el compilador?**
-_____
+Ahora que terminé, ¿qué cambiaría de mi proceso?
 
-## 10. Tabla de pruebas (Fase 4)
+¿Qué fue lo más difícil y cómo lo resolví?
+el hacer que funcionase bien
 
-| Caso | Entradas (opción, a, b) | Esperado | Obtenido | ¿Pasó? |
-|---|---|---|---|---|
-| Suma | 1, 8, 5 | 8 + 5 = 13 | _____ | _____ |
-| Resta negativa | 2, 3, 5 | 3 - 5 = -2 | _____ | _____ |
-| Multiplicación con decimales | 3, 2.5, 4 | 2.5 * 4 = 10 | _____ | _____ |
-| Multiplicación con negativo | 3, -3, 4 | -3 * 4 = -12 | _____ | _____ |
-| División | 4, 7, 2 | 7 / 2 = 3.5 | _____ | _____ |
-| Dividendo cero | 4, 0, 5 | 0 / 5 = 0 | _____ | _____ |
-| Divisor cero | 4, 5, 0 (luego 2) | vuelve a pedir `b`; 5 / 2 = 2.5 | _____ | _____ |
-| Suma con cero | 1, 5, 0 | 5 + 0 = 5 (**no** vuelve a pedir `b`) | _____ | _____ |
-| Opción fuera de rango | 5 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | _____ | _____ |
-| Opción cero | 0 (luego 1), 8, 5 | vuelve a pedir la opción; 8 + 5 = 13 | _____ | _____ |
-| Opción decimal | 2.5 (luego 2), 3, 5 | `leerEntero` vuelve a pedir; 3 - 5 = -2 | _____ | _____ |
-| Opción con texto | `suma` (luego 1), 8, 5 | `leerEntero` vuelve a pedir; 8 + 5 = 13 | _____ | _____ |
-| Número con texto | 1, `abc` (luego 8), 5 | `leerDecimal` vuelve a pedir; 8 + 5 = 13 | _____ | _____ |
-| Caso propio 1 | _____ | _____ | _____ | _____ |
-| Caso propio 2 | _____ | _____ | _____ | _____ |
+¿Qué pregunta me quedó sin responder?
 
-## 11. Bitácora de mejoras (Fase 4)
+¿Fue más fácil programar a partir de una receta ajena que de la mía? ¿Por qué? si por que ya tengo una idea
 
-| # | ¿Qué falló o qué quise mejorar? | ¿Qué cambié? | ¿Funcionó? |
-|---|---|---|---|
-| 1 | _____ | _____ | _____ |
-| 2 | _____ | _____ | _____ |
+Si yo hubiera diseñado la receta, ¿qué le cambiaría?
 
-**¿Encontré algo que la receta no contemplaba? ¿Qué?**
-_____
-
-**Reto elegido (opcional):** _____
-
-## 12. Dudas para el profesor (Fase 3)
-
-| Duda | Lo que ya intenté |
-|---|---|
-| _____ | _____ |
-
-## 13. Reflexión final
-
-**¿Qué aprendí con esta práctica?**
-_____
-
-**Ahora que terminé, ¿qué cambiaría de mi proceso?**
-_____
-
-**¿Qué fue lo más difícil y cómo lo resolví?**
-_____
-
-**¿Qué pregunta me quedó sin responder?**
-_____
-
-**¿Fue más fácil programar a partir de una receta ajena que de la mía? ¿Por qué?**
-_____
-
-**Si yo hubiera diseñado la receta, ¿qué le cambiaría?**
-_____
-
-## 14. Lista de verificación antes de entregar (Fase 5)
-
-- [ ] Llené las secciones 7 a 13 (no quedan `_____`)
-- [ ] No modifiqué las secciones 1 a 6 ni la receta de `RECETA.md`
-- [ ] Cada bloque de `main.cpp` tiene su comentario `// Paso N`
-- [ ] Mi programa compila sin advertencias
-- [ ] Probé todos los casos de la tabla
-- [ ] Hice los Experimentos A y B y dejé el código correcto al terminar
-- [ ] No modifiqué `utilerias.h`
-- [ ] Hice al menos 4 commits con mensajes claros
-- [ ] Hice `git push` y verifiqué mi fork en GitHub
-- [ ] Entregué el enlace de mi fork en Classroom
+14. Lista de verificación antes de entregar (Fase 5)
+ Llené las secciones 7 a 13 
+ No modifiqué las secciones 1 a 6 ni la receta de RECETA.md
+ Cada bloque de main.cpp tiene su comentario // Paso N
+ Mi programa compila sin alertas
+ Probé todos los casos de la tabla
+ Hice los Experimentos A y B y dejé el código correcto al terminar
+ No modifiqué utilerias.h
+ Hice al menos 4 commits 
+ Hice git push y verifiqué mi fork en GitHub
+ Entregué el enlace de mi fork en Classroom
